@@ -1,0 +1,91 @@
+@media(max-width: 800px) {
+  .modal-opened-lg {
+    padding: 20px;
+    width: 100vw !important;
+    height: 100vh !important;
+    border-radius: unset !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    top: 0 !important;
+    transform: unset !important;
+
+    &::-webkit-scrollbar {
+    }
+
+    & a.close {
+      font-size: 14px !important;
+      right: 40px !important;
+    }
+
+    & #editPostForm {
+
+      & button {
+        &:hover {
+        }
+      }
+
+      & h1 {
+      }
+
+      & mat-form-field {
+      }
+    }
+  }
+
+  .imageUpload {
+  }
+
+  .imageUpload-image {
+    & i {
+    }
+
+    &:hover {
+      & i {
+      }
+    }
+  }
+
+  .full-row {
+  }
+
+  .addTopic {
+  }
+
+  .imageUpload-title {
+  }
+
+  input[type="file"] {
+  }
+
+  .error {
+  }
+  .addTag {
+
+    & h3 {
+    }
+
+    & input {
+    }
+
+    & a {
+    }
+  }
+
+  .images-row {
+
+    & .edit-post-image {
+      & img {
+      }
+
+      & i {
+      }
+    }
+
+    & .addImage {
+
+      & i {
+      }
+    }
+  }
+}

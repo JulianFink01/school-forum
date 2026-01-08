@@ -1,0 +1,39 @@
+<form [formGroup]="postData" *ngIf="account$ |async as account">
+  <div id="postQuestion">
+    <div class="loading" *ngIf="loading"><img src="assets/images/gifs/loading.gif"></div>
+    <div id="postQuestion_header">
+      <div class="avatarImage" [style]="'background-image: url(\''+account.profilePicture.path+'\')'">
+      </div>
+      <div id="postQuestion_textAreas">
+              <textarea matInput placeholder="Title..." i18n="@@component.home.askQuestion.title"
+                        formControlName="title"></textarea>
+        <textarea matInput placeholder="Your Question..." i18n="@@component.home.askQuestion.question"
+                  formControlName="message"></textarea>
+      </div>
+    </div>
+    <div class="topics">
+      <div class="topic" *ngFor="let topic of this.selectedTopics, let i = index">
+        <a>{{topic.name}}</a>
+        <i class="material-icons" (click)="removeTopic(i)">clear</i></div>
+    </div>
+    <a class="error" *ngFor="let error of errors">
+      {{error}}
+    </a>
+    <div id="postQuestion-bottom">
+      <div class="postQuestion-bottom-left">
+        <label class="uploadImage">
+          <input type="file" accept="image/*" multiple (change)="onFileChange($event)">
+          <i class="material-icons">image</i>
+        </label>
+        <i class="material-icons" (click)="this.showAddTags = !this.showAddTags">add</i>
+      </div>
+      <a i18n="@@component.general.post" (click)="postQuestion()">Post</a>
+    </div>
+    <div [className]="this.showAddTags?'addTag':'addTag addTagClosed'">
+      <i class="material-icons" (click)="this.showAddTags = !this.showAddTags">close</i>
+      <h3 i18n="@@component.home.askQuestion.tags">Put in as many tags as you like, to get more Answers</h3>
+      <input #topic type="text" placeholder="Your Tag Name.." i18n="@@component.home.askQuestion.insertTag">
+      <a i18n="@@component.general.submit" (click)="addTopic(topic.value)">Submit</a>
+    </div>
+  </div>
+</form>

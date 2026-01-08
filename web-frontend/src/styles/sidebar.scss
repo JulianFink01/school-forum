@@ -1,0 +1,77 @@
+
+#sidebar-content {
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  border-bottom-right-radius: 25px;
+  background-color: transparent;
+
+  & mat-drawer-content {
+    width: 100%;
+  }
+
+  & mat-drawer-content::ng-deep {
+    ::-webkit-scrollbar {
+      display: none !important;
+    }
+  }
+
+  & #sidebar-container {
+    background-color: white;
+    width: $sidebarWidth;
+    max-width: $sidebarMaxWidth;
+    height: 100%;
+
+    & #sidebar-menu {
+      height: $sidebarHeight;
+      max-height: $sidebarMaxHeight;
+      display: grid;
+      place-items: center;
+      font-size: 32px;
+      background-color: white;
+      border-top-right-radius: 25px;
+      cursor: pointer;
+    }
+
+    & .sidebar-item {
+      overflow: hidden;
+      font-size: 16px;
+      border-radius: 5px;
+      width: 100%;
+      padding: 15px;
+      cursor: pointer;
+      transition: 0.3s all ease-in;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      color: $main-red;
+      & a {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: row;
+
+        & a {
+          padding-left: 15px;
+          display: grid;
+          place-items: center;
+          font-size: 14px;
+          text-decoration: none !important;
+          color: inherit;
+        }
+      }
+
+    }
+
+    & .sidebar-item-bottom {
+      position: absolute;
+      bottom: 0;
+    }
+
+    & .sidebar-item-active {
+      background-color: darken(white, 3%);
+    }
+  }
+}
+
+@import "sidebar.smartphone";

@@ -1,0 +1,35 @@
+<div id="dashboard">
+  <div *ngIf="general$ |async as general"></div>
+  <div id="dashboard-inner">
+    <div id="dashboard-frames">
+      <div class="dashboard-frame">
+        <a i18n="@@component.home.dashboard.forum">Forum</a>
+      </div>
+      <div class="dashboard-frame">
+        <a i18n="@@component.home.dashboard.assistance">Find a Teacher</a>
+      </div>
+      <div class="dashboard-frame">
+        <a i18n="@@component.home.dashboard.books">Find your Books</a>
+      </div>
+      <div class="dashboard-frame">
+        <a i18n="@@component.home.dashboard.ask">Ask a Question</a>
+      </div>
+    </div>
+  </div>
+  <div id="content">
+    <div id="content-left">
+      <div id="content-title">
+        <h1 i18n="@@component.home.dashboard.post.sectionTitle">Timeline</h1>
+        <h2 i18n="@@component.home.dashboard.post.sectionSubtitle">Explore the latest News.</h2>
+      </div>
+      <app-add-post (refresh)="refresh()"></app-add-post>
+    </div>
+    <div id="content-right">
+      <app-post *ngFor="let post of (posts$ | async)" [post]="post" (onDelete)="refresh()"
+                (onEdit)="editPost($event)"></app-post>
+    </div>
+  </div>
+</div>
+
+
+<app-edit-post #editPostComponent></app-edit-post>

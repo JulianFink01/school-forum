@@ -1,0 +1,14 @@
+<div class="comment" *ngIf="comment && parent">
+  <div class="avatarImage" [style]="'background-image: url(\''+comment?.provider?.profilePicture?.path+'\')'">
+  </div>
+  <div class="comment_message" *ngIf="(account$ |async) as account">
+    <p>{{comment?.provider?.firstName}} {{comment?.provider?.lastName}}
+      <span>{{comment.timestamp | date}}
+        <span *ngIf="account.id === comment.provider?.id || account.id === parent.provider?.id">
+          <i class="material-icons" (click)="delete()">delete</i>
+        </span>
+      </span>
+    </p>
+    <a>{{comment.message}}</a>
+  </div>
+</div>

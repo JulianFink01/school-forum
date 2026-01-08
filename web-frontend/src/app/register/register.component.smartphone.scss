@@ -1,0 +1,111 @@
+@import "src/styles/variables";
+
+@media(max-width: 800px) {
+  #login-container {
+    & #login-header {
+      & img {
+        display: none;
+      }
+    }
+
+    & #smartphone-image {
+      display: block !important;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      z-index: 2;
+    }
+
+    & #title {
+      top: 2%;
+      width: 100%;
+      text-align: left;
+      padding: 0 30px;
+      & h1 {
+        font-size: 3rem;
+      }
+
+      & h2 {
+        font-size: 1rem;
+      }
+    }
+
+    & form {
+      z-index: 3;
+      width: 80%;
+      box-shadow: $box-shadow;
+      left: 50%;
+      top: 15%;
+      transform: translate(-50%, 0);
+      height: 80vh;
+
+      & h2 {
+        color: $main-red;
+        font-size: 2rem;
+        text-transform: uppercase;
+        padding-top: 15px;
+      }
+
+      & mat-form-field, & span {
+        display: grid;
+        place-items: center;
+        border: 0px;
+        color: black;
+        border-radius: 25px;
+        width: 60%;
+        height: 60px;
+      }
+
+      & #login-socialMedia {
+        height: 10%;
+        width: 70%;
+        justify-content: space-between;
+        display: flex;
+        flex-direction: row;
+
+        & .socialMedia-icon {
+          width: 50px;
+          height: 50px;
+          box-shadow: $box-shadow;
+          padding: 15px;
+          background-size: 40%;
+          background-position: center;
+          border-radius: 50%;
+          background-repeat: no-repeat;
+          transition: 0.3s all ease;
+
+          &:hover {
+            box-shadow: $box-shadow-bigger;
+          }
+
+          &.google {
+            background-image: url("../../assets/images/socialMedia/google.png");
+            background-size: 50%;
+          }
+
+          &.facebook {
+            background-image: url("../../assets/images/socialMedia/facebook.png");
+            background-size: 25%;
+          }
+
+          &.apple {
+            background-image: url("../../assets/images/socialMedia/apple.png");
+          }
+        }
+      }
+
+      & #login-button {
+        width: 60%;
+        height: 40px;
+        font-size: 14px;
+        padding: 10px 0;
+      }
+
+      & mat-form-field {
+        text-align: left;
+      }
+    }
+
+  }
+
+}

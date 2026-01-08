@@ -1,0 +1,131 @@
+@import "../../styles/variables";
+
+@media(max-width: 800px) {
+  #account {
+
+    & #account-header {
+      flex-direction: column;
+      height: 20vh;
+      max-height: 20vh;
+      min-height: 20vh;
+      margin-top: -1px;
+
+      & #account-thumbnail {
+        border-top-right-radius: 0px;
+        display: none;
+        width: 100%;
+
+        & label {
+          display: none;
+        }
+      }
+
+      & #account-information {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        overflow: visible;
+        padding: 0 25px;
+
+        & h1 {
+          color: white;
+          text-align: left;
+          word-spacing: unset !important;
+          font-size: 48px;
+          padding-bottom: 15px;
+        }
+
+        & #account-information-user {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-around;
+
+          & #account-avatar {
+            width: 100px !important;
+            height: 100px !important;
+            background-color: $main-red;
+            border-radius: 50%;
+            box-shadow: $box-shadow;
+            background-size: cover;
+            background-position: center;
+          }
+
+          & a {
+            display: none;
+          }
+        }
+
+      }
+
+    }
+
+    & #account-content {
+      padding-top: 30px;
+
+      & #account-content-inner {
+        width: 100%;
+        padding: 0 2.5%;
+
+        & .account-information-navigator {
+          display: flex;
+          width: 100%;
+          padding: unset;
+
+          & .account-information-navigator-item {
+            margin: unset;
+            margin-bottom: 20px;
+            width: 100%;
+
+            &:nth-child(1) {
+              background-color: $main-light-red;
+            }
+
+            &:nth-child(2) {
+              background-color: $main-orange;
+            }
+
+            &:nth-child(3) {
+              background-color: $main-gray;
+            }
+
+            &:nth-child(4) {
+              background-color: $main-blue;
+            }
+
+            & h3 {
+            }
+
+            & h2 {
+            }
+          }
+        }
+
+        & .account-content-posts {
+          & h1 {
+            color: $main-red;
+            text-align: left;
+            margin-top: 80px;
+            font-size: 38px;
+            padding-bottom: 25px;
+            word-spacing: 100vw;
+          }
+
+          & app-post {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  #account-avatar {
+    width: 100px;
+    height: 100px;
+    margin-left: unset;
+    transform: unset;
+    right: 25px;
+    top: 130px;
+  }
+}
+

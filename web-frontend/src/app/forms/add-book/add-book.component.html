@@ -1,0 +1,57 @@
+<form [formGroup]="bookData" *ngIf="account$ |async as account">
+  <div id="postBook">
+    <div class="loading" *ngIf="loading">
+      <img src="assets/images/gifs/loading.gif">
+    </div>
+    <div id="postBook_header">
+      <div class="avatarImage" [style]="'background-image: url(\''+account.profilePicture.path+'\')'">
+      </div>
+      <div id="postBook_textAreas">
+        <mat-form-field>
+          <input matInput placeholder="Name" i18n="@@component.home.askQuestion.title"
+                 formControlName="name">
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput placeholder="ISBN" i18n="@@component.home.askQuestion.isbn"
+                 formControlName="isbn">
+        </mat-form-field>
+        <mat-form-field class="half" style="margin-right: unset !important;">
+          <input matInput placeholder="Author" i18n="@@component.home.askQuestion.author"
+                 formControlName="author">
+        </mat-form-field>
+        <mat-form-field class="half" style="margin-right: unset !important;">
+          <input type="number" matInput placeholder="Price" i18n="@@component.home.askQuestion.price"
+                 formControlName="price">
+        </mat-form-field>
+        <textarea placeholder="Describe your Book as good as possible..."
+                  i18n="@@component.home.askQuestion.book"
+                  rows="3"
+                  formControlName="description"></textarea>
+      </div>
+    </div>
+    <div class="topics">
+      <div class="topic" *ngFor="let topic of this.selectedTopics, let i = index">
+        <a>{{topic.name}}</a>
+        <i class="material-icons" (click)="removeTopic(i)">clear</i></div>
+    </div>
+    <a class="error" *ngFor="let error of errors">
+      {{error}}
+    </a>
+    <div id="postBook-bottom">
+      <div class="postBook-bottom-left">
+        <label class="uploadImage">
+          <input type="file" accept="image/*" multiple (change)="onFileChange($event)">
+          <i class="material-icons">image</i>
+        </label>
+        <i class="material-icons" (click)="this.showAddTags = !this.showAddTags">add</i>
+      </div>
+      <a i18n="@@component.general.book" (click)="postBook()">Post</a>
+    </div>
+    <div [className]="this.showAddTags?'addTag':'addTag addTagClosed'">
+      <i class="material-icons" (click)="this.showAddTags = !this.showAddTags">close</i>
+      <h3 i18n="@@component.home.askQuestion.tags">Put in as many tags as you like, to get more Answers</h3>
+      <input #topic type="text" placeholder="Your Tag Name.." i18n="@@component.home.askQuestion.insertTag">
+      <a i18n="@@component.general.submit" (click)="addTopic(topic.value)">Submit</a>
+    </div>
+  </div>
+</form>

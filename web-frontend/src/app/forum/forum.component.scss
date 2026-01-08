@@ -1,0 +1,246 @@
+@import "../../styles/variables";
+
+#dashboard {
+  width: 100%;
+  display: grid;
+  place-items: flex-end;
+  transition: 0.3s all ease;
+  position: relative;
+  &::after{
+    content: '';
+    height: 80vh;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color: $main-red;
+    border-bottom-right-radius: 100px;
+    border-bottom-left-radius: 100px;
+    z-index: 3;
+  }
+  #content-left {
+    position: fixed;
+    width: 350px;
+    max-width: 350px !important;
+    z-index: 5;
+    margin-left: 6.5%;
+    & #content-title {
+      height: 150px;
+      max-width: 250px;
+      color: white;
+      padding-bottom: 50px;
+
+      & h1 {
+
+      }
+
+      & h2 {
+
+      }
+    }
+    & #postQuestion {
+      border-radius: 10px;
+      box-shadow: $box-shadow;
+      width: 100%;
+      background-color: white;
+      overflow: hidden;
+      padding: 20px;
+      position: relative;
+
+      & .addTagClosed {
+        height: 0 !important;
+        overflow: hidden;
+        padding: 0 !important;
+      }
+
+      & .addTag {
+        transition: 0.3s all ease;
+        position: absolute;
+        padding: 15px;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        backdrop-filter: blur(3px);
+        background-color: transparentize($main-red, 0.6);
+        justify-content: space-between;
+        display: flex;
+        flex-direction: column;
+
+        & i {
+          text-align: right;
+          color: $main-red;
+          cursor: pointer;
+          width: 20px;
+          align-self: flex-end;
+
+          &:hover {
+            text-shadow: $box-shadow;
+          }
+        }
+
+        & h3 {
+          text-align: center;
+          color: white;
+          text-shadow: $box-shadow;
+          font-weight: 600;
+        }
+
+        & input {
+          height: 40px;
+          border-radius: 25px;
+          padding: 0 15px;
+          border: unset;
+        }
+
+        & a {
+          background-color: $main-red;
+          border-radius: 25px;
+          padding: 0 15px;
+          display: grid;
+          align-items: center;
+          color: white;
+          height: 40px;
+          text-align: center;
+          cursor: pointer;
+          transition: 0.3s all ease;
+
+          &:hover {
+            box-shadow: $box-shadow;
+          }
+        }
+      }
+
+      & #postQuestion_header {
+        height: 50%;
+        display: flex;
+        place-items: flex-start;
+        justify-content: space-between;
+        padding-bottom: 10px;
+
+        & div.avatarImage {
+          border-radius: 50%;
+          vertical-align: top;
+          width: 40px;
+          height: 40px;
+          background-size: cover;
+          background-position: center;
+        }
+
+        & #postQuestion_textAreas {
+          width: 80%;
+
+          & textarea {
+            width: 100%;
+            max-width: 100%;
+            border: none;
+            height: 100px;
+            border-radius: 25px;
+            padding: 10px;
+            font-size: 14px;
+            background-color: lighten($main-red, 33%);
+
+            &:first-child {
+              height: 40px;
+              margin-bottom: 15px;
+            }
+
+            &::-webkit-scrollbar {
+              display: none !important;
+            }
+          }
+        }
+      }
+
+
+      & #postQuestion-bottom {
+        padding: 10px 0 0 0;
+        display: flex;
+        place-items: center;
+        justify-content: space-between;
+
+        & .postQuestion-bottom-left {
+          flex: 0.5;
+          display: flex;
+
+          & i {
+            color: $main-red;
+            transition: 0.3s all ease;
+            cursor: pointer;
+            font-size: 30px;
+
+            &:hover {
+              color: lighten($main-red, 10%);
+            }
+          }
+
+          & .uploadImage {
+            & input {
+              display: none;
+            }
+          }
+        }
+
+        & a {
+          cursor: pointer;
+          width: 40%;
+          height: 40px;
+          display: grid;
+          place-items: center;
+          background-color: $main-red;
+          text-align: center;
+          color: white;
+          border-radius: 25px;
+          transition: 0.3s all ease;
+
+          &:hover {
+            background-color: lighten($main-red, 10%);
+          }
+        }
+      }
+
+    }
+  }
+  #content {
+    z-index: 5;
+    width: calc(90% - 350px);
+    padding: 0 5%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    &::-webkit-scrollbar {
+      display: none !important;
+    }
+
+    & #content-right {
+      width: 100%;
+      margin-right: 10%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      overflow-y: hidden;
+      padding-top: 150px;
+
+      &::-webkit-scrollbar {
+        display: none !important;
+      }
+
+      & app-post {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      }
+    }
+  }
+}
+
+
+.scroll {
+  overflow-y: scroll !important;
+}
+
+@import "forum.component.smartphone";
+

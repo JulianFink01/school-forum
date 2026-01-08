@@ -1,0 +1,47 @@
+<app-sidebar #sidebarComponent></app-sidebar>
+<div >
+  <div id="navigation" *ngIf="showSidebar()">
+    <div id="navigation-header">
+      <div id="navigation-left">
+        <div id="navigation-header-left-header" *ngIf="general$ |async as general">
+          <div class="navigation-menu" (click)="toggleSideBar()">
+            <i class="material-icons">{{ general.isShown ? 'close' : 'menu'}}</i>
+          </div>
+          <div class="searchForm">
+            <i class="material-icons" (click)="searchForValue(searchValue)">search</i>
+            <input id="searchInput" placeholder="Search" (change)="changeDetection($event)" [value]="searchValue"
+                   i18n="@@component.general.form.search"/>
+          </div>
+        </div>
+        <div id="navigation-header-left-bottom">
+          <div id="navigation-path" *ngIf="general$ | async as general">
+            <h2 i18n="@@component.general.home">{{general.route.title}}</h2>
+            <i class="material-icons">{{general.route.icon}}</i>
+            <h4 i18n="@@component.general.home" *ngFor="let nav of general.route.routes">{{nav}}</h4>
+          </div>
+        </div>
+      </div>
+      <div id="navigation-right">
+        <div class="navigation-item">
+          <i class="material-icons">notifications</i>
+        </div>
+
+        <div class="navigation-item">
+          <i class="material-icons">help</i>
+        </div>
+        <div class="navigation-item" *ngIf="account$ | async as account">
+          <a [href]="'/account/'+account[0].id">
+            <img
+              src="{{account[0].profilePicture.path}}"
+              alt="Profile Image">
+            <a class="navigation-item-text">{{account[0].firstName + ' ' + account[0].lastName}}</a>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div style="height: 130px"></div>
+  <router-outlet>
+  </router-outlet>
+  <app-edit-profile #accountSettings  *ngIf="account$ | async as account" [accountData]="account[0]"></app-edit-profile>
+</div>

@@ -1,0 +1,68 @@
+@import "src/styles/variables";
+.comment {
+  max-width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  margin: 15px 0;
+  .avatarImage {
+    border-radius: 50%;
+    vertical-align: top;
+    width: 40px;
+    height: 40px;
+    background-size: cover;
+    background-position: center;
+  }
+
+
+  .comment_message {
+    max-width: calc(100% - 50px);
+    min-width: 90%;
+    margin-left: 15px;
+    border: none;
+    min-height: 40px;
+    border-radius: 25px;
+    padding: 10px;
+    font-size: 14px;
+    background-color: #f7eded;
+    & p{
+      width: 100%;
+      color: black;
+      font-weight: 600;
+      position: relative;
+      & span{
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-weight: normal;
+        font-size: 12px;
+        width: auto;
+        padding-right: 15px;
+        display: flex;
+        & span{
+          padding-right: unset !important;
+          display: grid;
+          align-items: center;
+          & i{
+            font-size: 14px !important;
+            cursor: pointer;
+            color: $main-red;
+            font-weight: 600;
+          }
+        }
+      }
+    }
+  }
+}
+@media(max-width: 800px) {
+  .avatarImage {
+    min-width: 40px !important;
+    max-width: 40px !important;
+    min-height: 40px !important;
+    max-height: 40px !important;
+  }
+  .comment_message{
+    max-width: calc(100% - 100px) !important;
+    min-width: 80% !important;
+  }
+}

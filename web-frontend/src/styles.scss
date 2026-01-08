@@ -1,0 +1,49 @@
+/* You can add global styles to this file, and also import other style files */
+@import "styles/components";
+@import "styles/variables";
+@import 'styles/theme';
+@import 'styles/navigation';
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Avenir-Roman';
+}
+
+html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Avenir-Roman';
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Avenir-Roman';
+}
+
+html {
+  background-color: lighten(#aaaa, 10%);
+}
+
+::ng-deep {
+  & router-outlet {
+    &::-webkit-scrollbar {
+      display: none !important;
+    }
+  }
+
+  & .mat-drawer-content {
+    &::-webkit-scrollbar {
+      display: none !important;
+    }
+  }
+}
+
+
+.relative {
+  position: relative !important;
+}

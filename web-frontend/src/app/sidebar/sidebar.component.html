@@ -1,0 +1,49 @@
+<div *ngIf="general$ | async as general">
+<div id="sidebar-blur" [class]="visible? '' : 'blur-hidden'"></div>
+<div id="sidebar-container" [class]="visible ? '' : 'sidebar-hidden'" mode="push" *ngIf="account$ | async as account">
+  <i class="material-icons" id="sidebar-menu"
+     (click)="toggleSideBar()">{{visible ? 'close' : 'menu'}}</i>
+  <div class="sidebar-item" routerLink="/home" [routerLinkActive]="['sidebar-item-active']">
+    <a [href]="'/account/'+account.id">
+      <i class="material-icons">home</i>
+      <a class="sidebar-title" i18n="@@component.general.home" href="/home">Home</a>
+    </a>
+  </div>
+  <div class="sidebar-item">
+    <a [href]="'/forum'">
+      <i class="material-icons">forum</i>
+      <a class="sidebar-title" i18n="@@component.general.messages" href="/messages">Messages</a>
+    </a>
+  </div>
+  <div class="sidebar-item">
+    <a [href]="'/books'">
+      <i class="material-icons">book</i>
+      <a class="sidebar-title" i18n="@@component.general.books" href="/books">Books</a>
+    </a>
+  </div>
+  <div class="sidebar-item">
+    <a [href]="'/forum'">
+      <i class="material-icons">accessibility</i>
+      <a class="sidebar-title" i18n="@@component.general.forum">Forum</a>
+    </a>
+  </div>
+  <div class="sidebar-item" [routerLink]="'/account/'+account.id" [routerLinkActive]="['sidebar-item-active']">
+    <a [href]="'/account/'+account.id">
+      <i class="material-icons">person</i>
+      <a class="sidebar-title" i18n="@@component.general.account">Account</a>
+    </a>
+  </div>
+  <div class="sidebar-item">
+    <a (click)="toggleSettings()">
+      <i class="material-icons">settings</i>
+      <a class="sidebar-title" i18n="@@component.general.settings">Settings</a>
+    </a>
+  </div>
+  <div class="sidebar-item sidebar-item-bottom">
+    <a (click)="logout()">
+      <i class="material-icons">logout</i>
+      <a class="sidebar-title" i18n="@@component.general.logout">Logout</a>
+    </a>
+  </div>
+</div>
+</div>

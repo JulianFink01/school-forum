@@ -1,0 +1,59 @@
+@import "../../../styles/variables";
+
+@media(max-width: 800px) {
+  #postBook {
+    display: none !important;
+
+    & .addTagClosed {
+    }
+
+    & .addTag {
+      & i {
+        &:hover {
+        }
+      }
+
+      & h3 {
+      }
+
+      & input {
+      }
+
+      & a {
+      }
+    }
+
+    & #postBook_header {
+      & div.avatarImage {
+      }
+
+      & #postBook_textAreas {
+        & textarea {
+          &:first-child {
+          }
+
+          &::-webkit-scrollbar {
+          }
+        }
+      }
+    }
+
+
+    & #postBook-bottom {
+      & .postBook-bottom-left {
+        & i {
+          &:hover {
+          }
+        }
+
+        & .uploadImage {
+          & input {
+          }
+        }
+      }
+
+      & a {
+      }
+    }
+  }
+}

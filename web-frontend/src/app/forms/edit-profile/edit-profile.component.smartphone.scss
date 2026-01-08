@@ -1,0 +1,21 @@
+@import "../../../styles/variables";
+@media(max-width: 800px) {
+  .modal-opened {
+    padding: 20px;
+    width: 100vw !important;
+    height: 100vh !important;
+    border-radius: unset !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    top: 0 !important;
+    transform: unset !important;
+  }
+
+  .half-row{
+    flex: 0 0 100% !important;
+  }
+  .half-row-smartphone{
+    flex: 0 0 45% !important;
+  }
+}

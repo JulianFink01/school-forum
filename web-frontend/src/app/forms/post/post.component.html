@@ -1,0 +1,45 @@
+<div class="post" *ngIf="post">
+  <div class="post_header">
+    <div class="avatarImage"
+         [style]="'background-image: url('+post?.provider?.profilePicture?.path+')'"
+         (click)="navigateToURL()"
+    ></div>
+    <div class="post-header-middle">
+      <a>{{post?.title}}</a>
+      <div class="topics">
+        <div class="topic" *ngFor="let topic of post?.topics, let i = index">
+          <a>{{topic.name}}</a>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="account$ |async as account">
+      <div class="relative" *ngIf="post.provider.id === account.id">
+        <i class="material-icons" (click)="editModalComponent.toggle()">more_vert</i>
+        <app-edit-modal (onDelete)="delete()" (onEdit)="edit()" #editModalComponent></app-edit-modal>
+      </div>
+    </div>
+  </div>
+  <div class="post_body">
+    <a class="post_text">
+      {{post?.message}}
+    </a>
+    <div  *ngIf="(images$ | async) as images">
+    <swiper *ngIf="images.length > 0"
+            [class]="images.length===1?'swiper-container post_image noArrows':'swiper-container post_image'">
+      <ng-template swiperSlide *ngFor="let image of images">
+        <div class="swiper-wrapper post_image_inner">
+          <div class="swiper-slide post_image_inner"
+               [style]="'background-image: url('+image.path+')'"></div>
+        </div>
+      </ng-template>
+    </swiper>
+    </div>
+  </div>
+  <div class="post_bottom">
+    <i class="material-icons">thumb_up</i>
+    <i class="material-icons" (click)="commentSectionComponent.toggleModal()">comment</i>
+    <a>{{post?.timestamp}}</a>
+  </div>
+  <app-comment-section #commentSectionComponent [post]="post"></app-comment-section>
+</div>
+

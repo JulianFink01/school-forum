@@ -1,0 +1,56 @@
+<div id="login-container">
+  <div id="login-header">
+    <img src="assets/images/illustrations/dashboard/books.png">
+  </div>
+  <form [formGroup]="registerData">
+    <h2>Register</h2>
+    <mat-form-field>
+      <mat-label i18n="@@component.register.form.email">Firstname</mat-label>
+      <input matInput type="text" placeholder="Firstname" formControlName="firstName"/>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label i18n="@@component.register.form.email">Lastname</mat-label>
+      <input matInput type="text" placeholder="Lastname" formControlName="lastName"/>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label i18n="@@component.register.form.email">Birthday</mat-label>
+      <input matInput type="date" placeholder="Birthday" formControlName="birthDay"/>
+    </mat-form-field>
+    <mat-form-field *ngIf="!this.email">
+      <mat-label i18n="@@component.register.form.email">E-Mail</mat-label>
+      <input matInput type="email" placeholder="E-Mail" formControlName="email"/>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="!this.email">
+      <mat-label i18n="@@component.register.form.password">Password</mat-label>
+      <input matInput type="password" placeholder="Password" formControlName="password"/>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="!this.email">
+      <mat-label i18n="@@component.register.form.passwordRepeat">Repeat Password</mat-label>
+      <input matInput type="password" placeholder="Repeat Password" formControlName="passwordRepeat"/>
+    </mat-form-field>
+
+    <span *ngIf="registerFailed" id="register-error"
+          i18n="@@component.login.form.errorMessage">{{this.errorMessage}}</span>
+
+    <a type="submit" id="login-button" i18n="@@component.register.register" (click)="register()">REGISTER</a>
+    <a (click)="navigateToLogin()">Login</a>
+    <div id="login-socialMedia">
+      <div class="socialMedia-icon google" (click)="loginWithGoogle()">
+      </div>
+      <div class="socialMedia-icon facebook" (click)="loginWithGoogle()">
+      </div>
+      <div class="socialMedia-icon apple" (click)="loginWithGoogle()">
+      </div>
+    </div>
+  </form>
+  <div id="title">
+    <h1>
+      School Forum
+    </h1>
+    <h2>Give, Get and learn. Now.</h2>
+  </div>
+
+  <img id="smartphone-image" src="assets/images/illustrations/dashboard/books.png">
+</div>

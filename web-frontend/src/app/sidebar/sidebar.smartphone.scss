@@ -1,0 +1,40 @@
+@media(max-width: 800px) {
+  .mat-drawer-container-has-open{
+    width: 50vw !important;
+  }
+  #sidebar-content {
+    & mat-drawer-content {
+    }
+
+    & mat-drawer-content::ng-deep {
+    }
+
+    & #sidebar-container {
+      background-color: white;
+      width: 50vw;
+      max-width: 50vw;
+
+      & #sidebar-menu {
+        height: 16vh;
+      }
+
+      & .sidebar-item {
+        font-size: 16px;
+        padding: 15px;
+
+        & a {
+          & a {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    & .sidebar-item-bottom {
+    }
+
+    & .sidebar-item-active {
+    }
+  }
+
+}

@@ -1,0 +1,242 @@
+@import "../../styles/variables";
+
+#account {
+
+  & #account-header {
+    height: 45vh;
+    min-height: 45vh;
+    max-height: 60vh;
+    background-color: $main-red;
+    width: 100%;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    overflow: hidden;
+    display: flex;
+    justify-items: flex-start;
+
+    & #account-thumbnail {
+      border-top-right-radius: 50px;
+      box-shadow: $box-shadow;
+      width: 50%;
+      height: 100%;
+      background-size: cover;
+      position: relative;
+
+      & label {
+        position: absolute;
+        left: 25px;
+        bottom: 25px;
+        border-radius: 25px;
+        padding: 5px 10px;
+        color: white;
+        width: auto;
+        display: flex;
+        align-items: center;
+        background-color: transparentize(white, 0.6);
+        backdrop-filter: blur(3px);
+        display: flex;
+        transition: 0.3s all ease;
+        cursor: pointer;
+        flex-direction: row-reverse;
+
+        &:hover {
+          box-shadow: $box-shadow;
+        }
+      }
+    }
+
+    & #account-information {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      flex-grow: 2;
+      width: 50%;
+      overflow: visible;
+      padding: 0 25px;
+
+      & h1 {
+        color: white;
+        text-align: left;
+        word-spacing: unset !important;
+        font-size: 48px;
+        padding-bottom: 15px;
+        width: 100%;
+      }
+
+      & #account-information-user {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        min-width: 100%;
+        & #account-informations{
+          display: flex;
+          flex-direction: column;
+          & .account-informations-row{
+            display: flex;
+            width: 100%;
+            flex-direction: row;
+            align-content: flex-end;
+            padding: 0 0px 15px 50px;
+            & a{
+              color: white;
+              font-weight: normal;
+              font-size: 18px;
+            }
+            & i{
+              color: white;
+              font-weight: 600;
+              padding-right: 15px;
+              font-size: 24px;
+            }
+          }
+        }
+        & #account-avatar {
+          width: 100px !important;
+          height: 100px !important;
+          background-color: $main-red;
+          border-radius: 50%;
+          box-shadow: $box-shadow;
+          background-size: cover;
+          background-position: center;
+        }
+
+        & #account-biography {
+          color: darken($main-red, 40%);
+          padding: 0 40px 40px 0px;
+          width: 100%;
+          overflow-y: scroll;
+          &::-webkit-scrollbar{
+            display: none;
+          }
+        }
+      }
+
+    }
+
+  }
+
+  & #account-content {
+    width: 100%;
+    height: 100%;
+    padding: 25px;
+    padding-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    & #account-content-inner {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+      & .account-information-navigator {
+        display: flex;
+        height: 80%;
+        flex: 0.2;
+        flex-direction: column;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        border-radius: 15px;
+        box-shadow: $box-shadow;
+        overflow: hidden;
+
+        & .account-information-navigator-item {
+          width: 100%;
+          background-color: white;
+          transition: 0.3s all ease;
+          cursor: pointer;
+          display: flex;
+          flex-direction: column;
+          padding: 25px;
+          justify-content: space-between;
+          position: relative;
+          & *{
+            transition: 0.3s all ease;
+            transform: scale(0.7);
+          }
+          &.active-navigator *{
+            transform: unset;
+            position: relative;
+          }
+          &.active-navigator:before{
+            content: '';
+            background-color: $main-red;
+            height: 100%;
+            width: 10%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            border-bottom-left-radius: 25px;
+            border-top-left-radius: 25px;
+          }
+          &:hover {
+           & *{
+             transform: scale(1);
+           }
+          }
+          & h3 {
+            flex: 0.3;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            color: white;
+            font-size: 14px;
+            font-weight: normal;
+          }
+
+          & h2 {
+            flex: 0.3;
+            color: white;
+          }
+          &:nth-child(1) {
+            background-color: white;
+            & h3, & h2{
+              color: $main-red !important;
+            }
+          }
+
+          &:nth-child(2) {
+            background-color: $main-orange;
+          }
+
+          &:nth-child(3) {
+            background-color: $main-gray;
+          }
+
+          &:nth-child(4) {
+            background-color: $main-blue;
+          }
+
+
+        }
+      }
+
+      & .account-content-posts {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        flex: 0.8;
+        & h1 {
+          color: $main-red;
+          text-align: left;
+          font-size: 38px;
+          padding-bottom: 25px;
+        }
+
+        & app-post {
+          width: 90%;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+        }
+      }
+    }
+  }
+}
+
+app-edit-profile{
+  width: 100%;
+  height: 100%;
+}
+@import "account.component.smartphone";

@@ -1,0 +1,57 @@
+<div [className]="showModal?'blur blur-opened': 'blur'"></div>
+
+<div [className]="showModal?'modal modal-opened-lg': 'modal'">
+  <div [className]="this.showAddTags?'addTag':'addTag addTagClosed'">
+    <i class="material-icons" (click)="this.showAddTags = !this.showAddTags">close</i>
+    <h3 i18n="@@component.home.askQuestion.tags">Put in as many tags as you like, to get more Answers</h3>
+    <input #topic type="text" placeholder="Your Tag Name.." i18n="@@component.home.askQuestion.insertTag">
+    <a i18n="@@component.general.submit" (click)="addTopic(topic.value)">Submit</a>
+  </div>
+  <a (click)="toggleModal()" class="close"><i class="material-icons">close</i></a>
+  <form [formGroup]="postData" id="editPostForm">
+    <div class="loading" *ngIf="loading"><img src="assets/images/gifs/loading.gif"></div>
+    <h1 i18n="@@component.general.settings.postSettings">Edit Post</h1>
+
+    <mat-form-field class="full-row">
+      <mat-label i18n="@@component.login.form.title">Title</mat-label>
+      <input matInput placeholder="Title" formControlName="title"/>
+    </mat-form-field>
+    <mat-form-field class="full-row">
+      <mat-label i18n="@@component.login.form.message">Message</mat-label>
+      <textarea rows="5" matInput type="text" placeholder="Message" formControlName="message"></textarea>
+    </mat-form-field>
+
+    <div class="full-row">
+      <div class="topics">
+        <div class="topic" *ngFor="let topic of post?.topics, let i = index">
+          <a>{{topic.name}}</a>
+          <i class="material-icons" (click)="removeTopic(i)">clear</i>
+        </div>
+        <div class="topic addTopic" (click)="this.showAddTags = !this.showAddTags">
+          <i class="material-icons" >add</i>
+        </div>
+      </div>
+    </div>
+    <div class="full-row images-row">
+      <div class="edit-post-image" *ngFor="let image of post?.images, let i = index">
+        <i class="material-icons" (click)="removeSubmittedImage(i)">close</i>
+        <img [src]="image.path" />
+      </div>
+      <div class="edit-post-image" *ngFor="let image of selectedImages, let i = index">
+        <i class="material-icons" (click)="removeImage(i)">close</i>
+        <img [src]="image.path" />
+      </div>
+      <div class="edit-post-image addImage">
+        <label class="uploadImage">
+          <input type="file" accept="image/*" multiple (change)="onFileChange($event)">
+          <i class="material-icons">image</i>
+        </label>
+      </div>
+    </div>
+    <a class="error full-row" *ngFor="let error of errors">
+      {{error}}
+    </a>
+    <button i18n="@@component.general.form.update" (click)="savePost()" [disabled]="!postData.valid">Update</button>
+  </form>
+
+</div>

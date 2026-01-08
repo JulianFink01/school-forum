@@ -1,0 +1,133 @@
+@import "src/styles/variables";
+
+#login-container {
+  & #login-header {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    border-bottom-right-radius: 50px;
+    border-bottom-left-radius: 50px;
+    height: 60vh;
+    background-color: $main-red;
+    display: flex;
+    align-items: flex-end;
+
+    & img {
+      margin-left: 8%;
+      height: 50%;
+    }
+  }
+  & #smartphone-image{
+    display: none;
+  }
+
+  & #title {
+    position: absolute;
+    width: 40vw;
+    left: 15%;
+    top: 100px;
+    transform: translateX(-15%);
+    height: 40vw;
+    color: white;
+    text-shadow: $box-shadow;
+
+    & h1 {
+      font-size: 4rem;
+    }
+
+    & h2 {
+      font-size: 1.5rem;
+    }
+  }
+
+  & form {
+
+    position: absolute;
+    width: 30vw;
+    background-color: white;
+    box-shadow: $box-shadow;
+    left: 75%;
+    top: 30%;
+    transform: translate(-75%, -30%);
+    height: 30vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    place-items: center;
+    border-radius: 25px;
+
+    & h2 {
+      color: $main-red;
+      font-size: 2rem;
+      text-transform: uppercase;
+    }
+
+    & mat-form-field, & span {
+      display: grid;
+      place-items: center;
+      border: 0px;
+      color: black;
+      border-radius: 25px;
+      width: 60%;
+      height: 60px;
+    }
+
+    & #login-socialMedia {
+      height: 20%;
+      width: 40%;
+      justify-content: space-between;
+      display: flex;
+      flex-direction: row;
+
+      & .socialMedia-icon {
+        cursor: pointer;
+        width: 50px;
+        height: 50px;
+        box-shadow: $box-shadow;
+        padding: 15px;
+        background-size: 40%;
+        background-position: center;
+        border-radius: 50%;
+        background-repeat: no-repeat;
+        transition: 0.3s all ease;
+
+        &:hover {
+          box-shadow: $box-shadow-bigger;
+        }
+
+        &.google {
+          background-image: url("../../assets/images/socialMedia/google.png");
+          background-size: 50%;
+        }
+
+        &.facebook {
+          background-image: url("../../assets/images/socialMedia/facebook.png");
+          background-size: 25%;
+        }
+
+        &.apple {
+          background-image: url("../../assets/images/socialMedia/apple.png");
+        }
+      }
+    }
+
+    & #login-button {
+      display: grid;
+      align-items: center;
+      text-align: center;
+      border-radius: 25px;
+      width: 50%;
+      height: 50px;
+      background-color: $main-red;
+      box-shadow: $box-shadow;
+      border: none;
+      color: white;
+    }
+
+    & mat-form-field {
+      text-align: left;
+    }
+  }
+
+}
+@import "login.component.smartphone";

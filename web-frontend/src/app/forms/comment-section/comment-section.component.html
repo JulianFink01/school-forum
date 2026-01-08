@@ -1,0 +1,11 @@
+<div *ngIf="showComments && post" class="comment-section">
+  <div class="comments">
+      <app-comment *ngFor="let comment of (comments$ | async)" [comment]="comment" [parent]="post" (refresh)="loadComments()"></app-comment>
+  </div>
+  <div class="postComment">
+    <div class="avatarImage" [style]="'background-image: url(\''+post?.provider?.profilePicture?.path+'\')'">
+    </div>
+      <textarea [ngModel]="this.commentData?.message" placeholder="Your Comment.." #comment></textarea>
+      <a i18n="@@component.general.form.submit" (click)="submitComment(comment.value)">Submit</a>
+  </div>
+</div>

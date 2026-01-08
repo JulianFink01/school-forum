@@ -1,0 +1,8 @@
+<div #editSection class="editSection hideEditSection">
+  <div class="section" (click)="edit()" *ngIf="showEdit">
+    <a i18n="@@component.general.form.edit">Edit</a>
+  </div>
+  <div class="section delete" (click)="delete()">
+    <a i18n="@@component.general.form.edit">Delete</a>
+  </div>
+</div>

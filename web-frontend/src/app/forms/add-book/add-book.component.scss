@@ -1,0 +1,134 @@
+@import "../../../styles/variables";
+#postBook {
+  border-radius: 10px;
+  box-shadow: $box-shadow;
+  width: 100%;
+  background-color: white;
+  overflow: hidden;
+  padding: 20px;
+  position: relative;
+
+
+  & #postBook_header {
+    height: 30%;
+    display: flex;
+    place-items: flex-start;
+    justify-content: space-between;
+    padding-bottom: 10px;
+
+    & div.avatarImage {
+      border-radius: 50%;
+      vertical-align: top;
+      width: 40px;
+      height: 40px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    & #postBook_textAreas {
+      width: 90%;
+      display: inline-flex;
+      flex-wrap: wrap;
+      & ::ng-deep {
+        .mat-form-field-underline{
+          display: none !important;
+        }
+        .mat-form-field-infix {
+         border-top: unset !important;
+        }
+        & mat-form-field{
+
+        width: 100%;
+        max-width: 100%;
+        border: none;
+        height: 50px;
+        border-radius: 25px;
+        padding: 10px;
+        font-size: 14px;
+        background-color: lighten($main-red, 33%);
+        margin-bottom: 15px;
+        margin-right: 10px;
+        margin-left: 20px;
+      }
+    }
+      & textarea {
+        width: 100%;
+        max-width: 100%;
+        border: none;
+        height: 50px;
+        border-radius: 25px;
+        padding: 10px;
+        font-size: 14px;
+        background-color: lighten($main-red, 33%);
+        margin-bottom: 40px;
+        margin-right: 10px;
+        margin-left: 20px;
+
+
+
+        &::-webkit-scrollbar {
+          display: none !important;
+        }
+      }
+    }
+  }
+
+
+  & #postBook-bottom {
+    padding: 10px 0 0 0;
+    display: flex;
+    place-items: center;
+    justify-content: space-between;
+
+    & .postBook-bottom-left {
+      flex: 0.5;
+      display: flex;
+
+      & i {
+        color: $main-red;
+        transition: 0.3s all ease;
+        cursor: pointer;
+        font-size: 30px;
+
+        &:hover {
+          color: lighten($main-red, 10%);
+        }
+      }
+
+      & .uploadImage {
+        & input {
+          display: none;
+        }
+      }
+    }
+
+    & a {
+      cursor: pointer;
+      width: 40%;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      background-color: $main-red;
+      text-align: center;
+      color: white;
+      border-radius: 25px;
+      transition: 0.3s all ease;
+
+      &:hover {
+        background-color: lighten($main-red, 10%);
+      }
+    }
+  }
+
+}
+
+.error{
+  color: $main-red;
+  text-align: center;
+  width: 100%;
+  font-size: 14px;
+}
+.half {
+  width: 40% !important;
+}
+@import "add-book.component.smartphone";

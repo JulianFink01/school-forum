@@ -1,0 +1,55 @@
+<div [className]="showModal?'blur blur-opened': 'blur'"></div>
+
+<div [className]="showModal?'modal modal-opened': 'modal'">
+  <a (click)="toggleModal()" class="close"><i class="material-icons">close</i></a>
+
+  <form [formGroup]="userData" id="editProfileForm">
+
+    <h1 i18n="@@component.general.settings.email">Account
+      Settings:  {{userData.value.firstName}} {{userData.value.lastName}}</h1>
+
+    <label class="imageUpload half-row half-row-smartphone">
+      <input type="file" (change)="setProfilePicture($event)"/>
+      <div #profilePicture class="imageUpload-image" [style]="'background-image: url('+accountData?.profilePicture?.path+')'">
+        <i class="material-icons">edit</i>
+      </div>
+    </label>
+    <label class="imageUpload half-row half-row-smartphone" >
+      <input type="file" (change)="setThumbnail($event)"/>
+      <div #profileThumbnail class="imageUpload-image"[style]="'background-image: url('+accountData?.thumbnail?.path+')'">
+        <i class="material-icons">edit</i>
+      </div>
+    </label>
+      <mat-form-field class="half-row">
+        <mat-label i18n="@@component.login.form.name">Name</mat-label>
+        <input matInput placeholder="Name" formControlName="firstName"/>
+      </mat-form-field>
+
+      <mat-form-field class="half-row">
+        <mat-label i18n="@@component.login.form.lastName">Last name</mat-label>
+        <input matInput type="text" placeholder="lastName" formControlName="lastName"/>
+      </mat-form-field>
+    <mat-form-field class="half-row">
+      <mat-label i18n="@@component.login.form.language">Language</mat-label>
+      <mat-select formControlName="language">
+        <mat-option *ngFor="let lang of (languages$ | async)" (click)="setLanguage(lang)" [value]="lang.name">
+          {{lang.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="half-row">
+      <mat-label i18n="@@component.login.form.birthday">Birthday</mat-label>
+      <input matInput type="date" placeholder="birthday" formControlName="birthDay"/>
+    </mat-form-field>
+    <mat-form-field class="full-row double-height">
+      <mat-label i18n="@@component.login.form.about">About You.</mat-label>
+      <textarea rows="5" matInput placeholder="Ex. It makes me feel..." formControlName="biography"></textarea>
+    </mat-form-field>
+    <a class="error" *ngFor="let error of errors">
+      {{error}}
+    </a>
+    <button i18n="@@component.general.form.update" (click)="saveAccount()">Update</button>
+  </form>
+
+</div>

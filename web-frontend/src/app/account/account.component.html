@@ -1,0 +1,67 @@
+<div id="account" *ngIf="account$ |async as account">
+  <header id="account-header">
+    <div id="account-thumbnail"
+         [style]="'background-image: url('+account?.thumbnail?.path+')'">
+    </div>
+
+    <div id="account-information">
+      <h1>{{account.firstName + ' ' + account.lastName}}</h1>
+      <div id="account-information-user">
+        <div id="account-avatar"
+             [style]="'background-image: url('+account?.profilePicture?.path+')'">
+        </div>
+        <div id="account-informations" >
+          <div class="account-informations-row" *ngIf="account.languages.length > 0">
+            <i class="material-icons">speaker_notes</i>
+            <a *ngFor="let lang of account.languages">{{lang.name}}</a>
+          </div>
+          <div class="account-informations-row" *ngIf="account.birthDay">
+            <i class="material-icons">cake</i>
+            <a>{{account.birthDay | date}}</a>
+          </div>
+        </div>
+        <a id="account-biography">{{account?.biography ? account.biography : 'The User has no Biography to show..'}} </a>
+      </div>
+    </div>
+  </header>
+  <div id="account-content" *ngIf="general$ | async">
+    <div id="account-content-inner">
+
+      <div class="account-information-navigator">
+        <div class="account-information-navigator-item" (click)="toggleContent(actions.ACTION_TOGGLE_SETTINGS)"
+             *ngIf="isOwnProfile">
+          <h3 i18n="@@component.account.header.list"><i class="material-icons">settings</i>Settings</h3>
+          <h2 i18n="@@component.account.header.listPosts">Update your Information</h2>
+        </div>
+        <div [class]="this.selectedAction===actions.ACTION_TOGGLE_POST?'account-information-navigator-item active-navigator':'account-information-navigator-item'"
+             (click)="toggleContent(actions.ACTION_TOGGLE_POST)">
+          <h3 i18n="@@component.account.header.list">List</h3>
+          <h2 i18n="@@component.account.header.listPosts">The latest Post</h2>
+          <h3 i18n="@@component.account.header.listPostsOf">of {{account.firstName}}</h3>
+        </div>
+        <div class="account-information-navigator-item"
+             [class]="this.selectedAction===actions.ACTION_TOGGLE_BOOK?'account-information-navigator-item active-navigator':'account-information-navigator-item'"
+             (click)="toggleContent(actions.ACTION_TOGGLE_BOOK)">
+          <h3 i18n="@@component.account.header.look">Look</h3>
+          <h2 i18n="@@component.account.header.forBooks">for Books</h2>
+          <h3 i18n="@@component.account.header.onAccountTimeline">on {{account.firstName}} Timeline</h3>
+        </div>
+        <div class="account-information-navigator-item"
+             [class]="this.selectedAction===actions.ACTION_TOGGLE_COACHING?'account-information-navigator-item active-navigator':'account-information-navigator-item'"
+             (click)="toggleContent(actions.ACTION_TOGGLE_COACHING)">
+          <h3 i18n="@@component.account.header.see">See if {{account.firstName}}</h3>
+          <h2 i18n="@@component.account.header.offersCoaching">offers any Coachings</h2>
+          <h3 i18n="@@component.account.header.yourPurpose">for your purpose</h3>
+        </div>
+      </div>
+
+      <div class="account-content-posts" *ngIf="showPosts">
+        <app-post *ngFor="let post of (userPosts$ | async)" [post]="post"></app-post>
+      </div>
+      <div class="account-content-posts" *ngIf="showBooks">
+        <app-book *ngFor="let book of (userBooks$ | async)" [book]="book"></app-book>
+      </div>
+    </div>
+  </div>
+  <app-edit-profile *ngIf="account" #settings [accountData]="account"></app-edit-profile>
+</div>

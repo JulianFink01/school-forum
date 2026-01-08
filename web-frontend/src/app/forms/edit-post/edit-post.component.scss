@@ -1,0 +1,196 @@
+@import "../../../styles/variables";
+
+.modal-opened-lg {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  flex-flow: column wrap;
+  flex-grow: 1;
+  overflow-y: scroll !important;
+  box-shadow: $box-shadow;
+  padding: 20px;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  & a.close {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    align-self: flex-end;
+    cursor: pointer;
+    color: $main-red;
+    transition: 0.3s all ease-in-out;
+
+    &:hover {
+      text-shadow: $box-shadow;
+    }
+  }
+
+  & #editPostForm {
+    flex: 1;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 80%;
+    position: relative;
+
+    & button {
+      width: 100%;
+      height: 40px;
+      color: white;
+      border: unset;
+      border-radius: 25px;
+      background-color: $main-red;
+      transition: 0.3s all ease-in-out;
+
+      &:hover {
+        box-shadow: $box-shadow;
+      }
+    }
+
+    & h1 {
+      flex: 0 0 100%;
+      color: $main-red;
+      text-align: center;
+    }
+
+    & mat-form-field {
+      flex: 0 0 100%;
+    }
+  }
+}
+
+.imageUpload {
+  display: grid;
+  overflow: hidden;
+  text-align: center;
+  align-items: center;
+  place-items: center;
+  margin-bottom: 10px;
+}
+
+.imageUpload-image {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  background-size: cover;
+  cursor: pointer;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+
+  & i {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    align-items: center;
+    color: white;
+    backdrop-filter: blur(0.8px);
+    transition: 0.3s all ease-in-out;
+  }
+
+  &:hover {
+    & i {
+      backdrop-filter: unset;
+      transform: scale(1.2);
+    }
+  }
+}
+
+.full-row {
+  width: 100%;
+}
+
+.addTopic {
+  width: 30px;
+  display: grid;
+  align-items: center;
+  place-items: center;
+  font-size: 24px;
+}
+
+.imageUpload-title {
+  color: lighten(black, 0.8)
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.error {
+  color: $main-red;
+  text-align: center;
+  width: 100%;
+  font-size: 14px;
+}
+
+.addTag {
+  z-index: 10;
+
+  & h3 {
+    font-size: 34px;
+  }
+
+  & input {
+    height: 60px;
+    box-shadow: $box-shadow;
+  }
+
+  & a {
+    height: 60px;
+  }
+}
+
+.images-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 25px 0;
+  z-index: 8;
+
+  & .edit-post-image {
+    position: relative;
+    width: 45%;
+    align-items: center;
+    justify-content: space-around;
+    max-height: 350px;
+    overflow: hidden;
+    border-radius: 5px;
+
+    & img {
+      width: 100%;
+      height: auto;
+      border-radius: 5px;
+    }
+
+    & i {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      border: 1px solid white;
+      color: white;
+      font-size: 18px;
+      padding: 3px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  }
+
+  & .addImage {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    & i {
+      position: unset;
+      display: block;
+      color: $main-red;
+      font-size: 42px;
+    }
+  }
+}
+@import "edit-post-smartphone.component";

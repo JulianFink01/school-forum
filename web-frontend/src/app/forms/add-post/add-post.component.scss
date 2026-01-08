@@ -1,0 +1,109 @@
+@import "../../../styles/variables";
+#postQuestion {
+  border-radius: 10px;
+  box-shadow: $box-shadow;
+  width: 100%;
+  background-color: white;
+  overflow: hidden;
+  padding: 20px;
+  position: relative;
+
+
+  & #postQuestion_header {
+    height: 50%;
+    display: flex;
+    place-items: flex-start;
+    justify-content: space-between;
+    padding-bottom: 10px;
+
+    & div.avatarImage {
+      border-radius: 50%;
+      vertical-align: top;
+      width: 40px;
+      height: 40px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    & #postQuestion_textAreas {
+      width: 80%;
+
+      & textarea {
+        width: 100%;
+        max-width: 100%;
+        border: none;
+        height: 100px;
+        border-radius: 25px;
+        padding: 10px;
+        font-size: 14px;
+        background-color: lighten($main-red, 33%);
+
+        &:first-child {
+          height: 40px;
+          margin-bottom: 15px;
+        }
+
+        &::-webkit-scrollbar {
+          display: none !important;
+        }
+      }
+    }
+  }
+
+
+  & #postQuestion-bottom {
+    padding: 10px 0 0 0;
+    display: flex;
+    place-items: center;
+    justify-content: space-between;
+
+    & .postQuestion-bottom-left {
+      flex: 0.5;
+      display: flex;
+
+      & i {
+        color: $main-red;
+        transition: 0.3s all ease;
+        cursor: pointer;
+        font-size: 30px;
+
+        &:hover {
+          color: lighten($main-red, 10%);
+        }
+      }
+
+      & .uploadImage {
+        & input {
+          display: none;
+        }
+      }
+    }
+
+    & a {
+      cursor: pointer;
+      width: 40%;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      background-color: $main-red;
+      text-align: center;
+      color: white;
+      border-radius: 25px;
+      transition: 0.3s all ease;
+
+      &:hover {
+        background-color: lighten($main-red, 10%);
+      }
+    }
+  }
+
+}
+
+.error{
+  color: $main-red;
+  text-align: center;
+  width: 100%;
+  font-size: 14px;
+}
+
+@import "add-post.component.smartphone";

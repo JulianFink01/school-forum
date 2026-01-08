@@ -1,0 +1,168 @@
+#navigation {
+  position: fixed;
+  width: 100vw;
+  z-index: 1000;
+  background-color: $main-red;
+  padding-bottom: 20px;
+  max-height: 130px;
+  height: 130px;
+  #navigation-header {
+    padding: 15px 25px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    place-items: center;
+
+    & #navigation-left {
+      width: 50%;
+      display: flex;
+      place-items: flex-start;
+      flex-direction: column;
+
+      & #navigation-header-left-header {
+        display: flex;
+        place-items: center;
+        flex-direction: row;
+        flex: 1;
+        width: 100%;
+        padding-bottom: 20px;
+        & .navigation-menu {
+          height: 40px;
+          display: grid;
+          margin-right: 25px;
+          place-items: center;
+          text-shadow: $box-shadow;
+
+          & i {
+            cursor: pointer;
+            font-size: 40px;
+            color: white;
+          }
+        }
+
+        & .searchForm {
+          display: flex;
+          place-items: center;
+          height: 40px;
+          width: 37%;
+          background-color: white;
+          border-radius: 25px;
+          overflow: hidden;
+          padding: 0 10px;
+          color: $main-black;
+          box-shadow: $box-shadow;
+
+          & i {
+            color: $main-black;
+          }
+
+          & input {
+            color: $main-black;
+            height: 100%;
+            width: 100%;
+            border: none;
+            padding: 0 10px;
+          }
+        }
+      }
+
+      & #navigation-header-left-bottom {
+        display: flex;
+        place-items: center;
+        flex-direction: column;
+        flex: 1;
+        & #navigation-path {
+          display: flex;
+          width: 100%;
+          flex-direction: row;
+          color: white;
+
+          & * {
+            display: flex;
+            place-items: center;
+            padding-left: 15px;
+          }
+
+          & h2 {
+            padding-left: 0px;
+            margin-left: 70px;
+          }
+
+          & i {
+            margin-left: 15px;
+            font-size: 18px;
+          }
+
+          & h4 {
+            font-size: 12px;
+            width: auto;
+
+            &::after {
+              font-size: 12px;
+              padding-left: 10px;
+              content: '>';
+            }
+
+            &:last-child {
+              &::after {
+                content: '';
+              }
+            }
+          }
+        }
+      }
+    }
+
+    & #navigation-right {
+      display: flex;
+      flex-direction: row;
+      min-width: 10%;
+      height: 100%;
+      max-height: 100%;
+      padding-right: 50px;
+      justify-content: space-around;
+      & .navigation-item {
+        padding: 0 20px;
+        color: white;
+        display: flex;
+        place-items: center;
+        flex-direction: row;
+        cursor: pointer;
+
+        & i {
+          font-size: 25px;
+          text-shadow: $box-shadow;
+        }
+        & a{
+          text-decoration: none;
+          display: flex;
+          flex-direction: row;
+          transition: 0.3s all ease;
+          & img {
+            border-radius: 50%;
+            box-shadow: $box-shadow;
+            width: 40px;
+            height: 40px;
+            &:hover{
+              box-shadow: $box-shadow-bigger;
+            }
+          }
+
+          & .navigation-item-text {
+            padding-left: 10px;
+            height: 40px;
+            display: grid;
+            place-items: center;
+            font-size: 14px;
+            color: white;
+            &:hover{
+              text-shadow: $box-shadow-bigger;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@import "navigation.smartphone";

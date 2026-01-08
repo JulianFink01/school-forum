@@ -1,0 +1,91 @@
+@import "../../styles/variables";
+
+#sidebar-blur {
+  position: fixed;
+  top: 130px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 100000;
+  background-color: transparentize(darken($main-black, 20), 0.4);
+  backdrop-filter: blur(5px);
+  transition: 0.3s all ease-in-out;
+}
+
+#sidebar-container {
+  background-color: $main-red;
+  width: 100%;
+  max-width: $sidebarMaxWidth;
+  position: fixed;
+  z-index: 10000000;
+  top: 130px;
+  border-bottom-right-radius: 15px;
+  bottom: 0;
+  overflow: hidden;
+  transition: 0.3s all ease-in-out;
+
+  & #sidebar-menu {
+    display: grid;
+    place-items: center;
+    font-size: 32px;
+    background-color: $main-red;
+    border-top-right-radius: 25px;
+    color: white;
+    cursor: pointer;
+    justify-items: flex-start;
+    padding-left: 15px;
+  }
+
+  & .sidebar-item {
+    overflow: hidden;
+    background-color: $main-red;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 100%;
+    padding: 15px;
+    cursor: pointer;
+    transition: 0.3s all ease-in;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    color: white;
+
+    & a {
+      text-decoration: none;
+      color: inherit;
+      display: flex;
+      flex-direction: row;
+
+      & a {
+        padding-left: 15px;
+        display: grid;
+        place-items: center;
+        font-size: 14px;
+        text-decoration: none !important;
+        color: inherit;
+      }
+    }
+
+  }
+
+  & .sidebar-item-bottom {
+    position: absolute;
+    bottom: 0;
+  }
+
+  & .sidebar-item-active {
+    background-color: lighten($main-red, 6%);
+  }
+}
+
+.sidebar-hidden {
+  width: 0 !important;
+  z-index: -100000 !important;
+}
+
+.blur-hidden {
+  opacity: 0 !important;
+  z-index: -100000 !important;
+}
+
+@import "sidebar.smartphone";

@@ -1,0 +1,154 @@
+@import "../../../styles/variables";
+@import '~swiper/swiper-bundle';
+.post {
+  margin-top: 40px;
+
+  &:first-child {
+    margin-top: unset;
+  }
+
+  &:last-child {
+    margin-bottom: 30px;
+  }
+
+  background-color: white;
+  border-radius: 10px;
+  height: auto;
+  width: 80% !important;
+  box-shadow: $box-shadow;
+  padding: 20px;
+
+  & .post_header {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+    border-bottom: 1px solid lighten($main-red, 33%);
+    justify-content: space-around;
+
+    & .avatarImage {
+      width: 50px;
+      height: 50px;
+      background-size: cover;
+      background-position: center;
+      border-radius: 25px;
+    }
+    & .post-header-middle{
+      width: calc(100% - 100px);
+      & a {
+        width: calc(100% - 100px);
+        display: grid;
+        padding-left: 20px;
+        text-align: left;
+        font-size: 24px;
+      }
+      & .topics{
+        justify-content: flex-start;
+        width: 100%;
+        padding: unset;
+        border: unset;
+        padding-left: 20px;
+        & .topic{
+          margin-right: 12px;
+          & a{
+            flex: 1;
+            min-width: 30px;
+            display: grid;
+            align-items: center;
+            padding: unset;
+            font-size: 12px;
+            text-align: center;
+          }
+        }
+      }
+    }
+
+
+    & i {
+      text-align: right;
+      width: 50px;
+      cursor: pointer;
+
+      &:hover {
+        color: lighten(black, 40%);
+      }
+    }
+  }
+
+  & .post_body {
+    padding: 20px 0;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid lighten($main-red, 33%);
+    justify-content: space-around;
+
+    & .post_text {
+      overflow-y: scroll;
+      &::-webkit-scrollbar{
+        display: none;
+      }
+      max-height: 200px;
+      width: calc(100% - 240px);
+    }
+
+    & .post_image {
+      background-size: cover;
+      background-position: center;
+      width: 300px;
+      height: 300px;
+      background-color: white;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    & .post_image_inner {
+      width: 300px;
+      height: 300px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    & .swiper-button-prev:after, & .swiper-button-next:after{
+      z-index: 1000;
+      background: rgba(255,255,255,0.3);
+      padding: 5px;
+      transform: translateY(-10px);
+      border-radius: 3px;
+      font-size: 18px;
+    }
+
+  }
+
+  & .post_bottom {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    padding-top: 20px;
+
+    & i {
+      &:hover {
+        color: lighten($main-red, 10%);
+      }
+
+      display: grid;
+      place-items: center;
+      width: 40px;
+      cursor: pointer;
+      color: $main-red;
+    }
+
+    & a {
+      font-size: 12px;
+      color: $main-red;
+      text-align: right;
+      width: calc(100% - 80px);
+
+    }
+  }
+}
+
+.noArrows{
+  & .swiper-button-next, & .swiper-button-prev{
+    display: none !important;
+  }
+}
+@import "post.component.smartphone";

@@ -1,0 +1,45 @@
+@import "src/styles/variables";
+
+.editSection{
+  width: 200px;
+  height: auto;
+  box-shadow: $box-shadow;
+  border-radius: 5px;
+  background-color: #fafafa;
+  position: absolute;
+  top: 80%;
+  left: -300%;
+  transition: 0.3s all ease-in-out;
+  z-index: 10;
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-wrap: wrap;
+}
+.section{
+  width: 100%;
+  font-size: 18px;
+  padding: 10px 20px;
+  display: grid;
+  align-items: center;
+  color: darken(#fafafa, 60%);
+  transition: 0.3s all ease-in-out;
+  cursor: pointer;
+  &:hover{
+    background-color: darken(#fafafa, 15%);
+  }
+}
+
+.delete{
+  color: $main-red;
+}
+.hideEditSection{
+  opacity: 0 !important;
+  z-index: -10 !important;
+}
+@media (max-width: 800px) {
+  .editSection{
+    left: -300%;
+  }
+}

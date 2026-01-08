@@ -1,0 +1,20 @@
+<div id="dashboard">
+  <div *ngIf="general$ | async as general"></div>
+  <div id="dashboard-inner">
+  </div>
+  <div id="content">
+    <div id="content-left">
+      <div id="content-title">
+        <h1 i18n="@@component.home.dashboard.books.sectionTitle">Books</h1>
+        <h2 i18n="@@component.home.dashboard.books.sectionSubtitle">Check out if you find a book for your purpose.</h2>
+      </div>
+      <app-add-book (refresh)="refresh()"></app-add-book>
+    </div>
+    <div id="content-right">
+      <app-book *ngFor="let book of (books$ | async)" [book]="book" (onDelete)="refresh()"
+                (onEdit)="editBook($event)"></app-book>
+    </div>
+  </div>
+</div>
+
+<app-edit-book #editBookComponent></app-edit-book>

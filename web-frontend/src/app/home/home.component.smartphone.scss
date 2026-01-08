@@ -1,0 +1,95 @@
+@media(max-width: 800px) {
+  #dashboard {
+    & #dashboard-inner {
+      overflow-x: scroll;
+      & #dashboard-frames {
+        width: 100%;
+
+        & .dashboard-frame {
+          width: 90%;
+          min-width: 90%;
+          max-width: 90%;
+          margin: 5%;
+          & a{
+
+          }
+        }
+      }
+    }
+
+    #content {
+      flex-direction: column;
+      padding: 0;
+      &::-webkit-scrollbar {
+        display: none !important;
+      }
+
+      & #content-left {
+        padding: unset;
+        width: 100%;
+        border-bottom-right-radius: 25px;
+        border-bottom-left-radius: 25px;
+        position: unset;
+        & #content-title {
+          height: 150px;
+          margin-left: 25px;
+          width: 100%;
+          color: white;
+          padding-bottom: 50px;
+          & h1 {
+
+          }
+
+          & h2 {
+
+          }
+        }
+
+        flex: 0.2;
+      }
+
+      & #content-right {
+        overflow: visible;
+        width: 100%;
+        padding: unset;
+        transform: unset;
+
+        &::-webkit-scrollbar {
+          display: none !important;
+        }
+
+        & app-post {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+        }
+      }
+    }
+  }
+
+  .fixed-dashboard {
+    & #dashboard-inner {
+      height: 25vh !important;
+      position: fixed;
+
+      & #dashboard-frames {
+        display: none !important;
+      }
+    }
+
+    & #content {
+      z-index: 100;
+      transform: translateY(320px) !important;
+
+      & #content-left {
+        & #content-title {
+        }
+      }
+    }
+  }
+
+  .scroll {
+    overflow-y: scroll !important;
+  }
+}

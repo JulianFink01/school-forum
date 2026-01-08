@@ -1,0 +1,59 @@
+@import "../../../styles/variables";
+
+@media(max-width: 800px) {
+  #postQuestion {
+    display: none !important;
+
+    & .addTagClosed {
+    }
+
+    & .addTag {
+      & i {
+        &:hover {
+        }
+      }
+
+      & h3 {
+      }
+
+      & input {
+      }
+
+      & a {
+      }
+    }
+
+    & #postQuestion_header {
+      & div.avatarImage {
+      }
+
+      & #postQuestion_textAreas {
+        & textarea {
+          &:first-child {
+          }
+
+          &::-webkit-scrollbar {
+          }
+        }
+      }
+    }
+
+
+    & #postQuestion-bottom {
+      & .postQuestion-bottom-left {
+        & i {
+          &:hover {
+          }
+        }
+
+        & .uploadImage {
+          & input {
+          }
+        }
+      }
+
+      & a {
+      }
+    }
+  }
+}

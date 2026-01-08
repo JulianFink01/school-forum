@@ -1,0 +1,37 @@
+
+@import '~@angular/material/theming';
+
+@include mat-core();
+$main-colors : (
+  50: rgba(194, 124, 121) !important,
+  100:rgba(194, 124, 121) !important,
+  200:rgba(194, 124, 121),
+  300:rgba(194, 124, 121),
+  400:rgba(115, 112, 134),
+  500:#000000,
+  600:#000000,
+  700: #000000,
+  800: #000000,
+  900: #000000,
+  A100: #000000,
+  A200: #000000,
+  A400: #000000,
+  A700: #000000,
+  contrast: (
+    500: white,
+    600: white,
+    700: white,
+    800: white,
+    900: white,
+    A700: white,
+  )
+);
+$my-primary: mat-palette($main-colors, 100);
+$my-accent: mat-palette($main-colors, 50);
+$my-warning : mat-palette($main-colors, 200);
+$main-theme: mat-light-theme($my-primary, $my-accent,$my-warning);
+
+
+
+@include angular-material-theme($main-theme);
+
