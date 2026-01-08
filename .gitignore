@@ -1,0 +1,16 @@
+# Large binaries / design & docs
+*.pptx
+*.psd
+*.xd
+*.pdf
+
+# macOS
+.DS_Store
+# Large binaries / design & docs
+*.pptx
+*.psd
+*.xd
+*.pdf
+
+# macOS
+.DS_Store
